@@ -43,3 +43,26 @@ temp_for_coord.png
 .idea/
 *.swp
 .DS_Store
+
+test/
+
+# ==========================================
+# 6. C++ / ONNX 产物 (体积大，可由脚本重建)
+# ==========================================
+# ONNX Runtime 官方包 (428MB)，下载地址见 cpp_demo/README.md
+cpp_demo/third_party/
+# ONNX 模型 (55MB)，由 export_onnx.py 生成
+cpp_demo/model/
+# 编译产物
+cpp_demo/build/
+cpp_demo/build_cmake/
+# 测试数据与结果
+cpp_demo/test_data/*.bin
+cpp_demo/test_data/*.raw
+cpp_demo/test_data/*.csv
+cpp_demo/run_log.txt
+
+# ==========================================
+# 7. 工具/记忆目录
+# ==========================================
+.workbuddy-ai/

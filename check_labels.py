@@ -56,9 +56,23 @@ def check_labels():
         cv2.putText(img_display, info_text, (10, 30), 
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2, cv2.LINE_AA)
 
+        # 4.1 显示当前加载文件的完整路径（过长时从左侧截断，保留末尾的目录和文件名）
+        def fit_path(text, max_len=110):
+            return text if len(text) <= max_len else "..." + text[-(max_len - 3):]
+
+        cv2.putText(img_display, fit_path(f"Image: {img_path}"), (10, 55),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 255, 255), 1, cv2.LINE_AA)
+        cv2.putText(img_display, fit_path(f"Coord: {coord_path}"), (10, 75),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 255, 255), 1, cv2.LINE_AA)
+
+        # 4.2 控制台打印完整路径，方便复制
+        print(f"[{idx+1}/{total}] Image: {os.path.abspath(img_path)}")
+        print(f"[{idx+1}/{total}] Coord: {os.path.abspath(coord_path)}")
+
         # 5. 显示窗口
         window_name = "Label Inspector (Press K/D/Q)"
         cv2.imshow(window_name, img_display)
+        cv2.setWindowTitle(window_name, f"Label Inspector - {fname}")
         
         # 6. 等待键盘输入 (无限等待，直到按下一个键)
         key = cv2.waitKey(0) & 0xFF

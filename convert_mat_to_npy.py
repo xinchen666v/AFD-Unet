@@ -5,9 +5,11 @@ from tqdm import tqdm
 
 # ================= 配置路径 =================
 # 你的原始 .mat 文件夹路径
-MAT_DIR = r"D:\PyProject\AFD-Unet\data\raw\floodmap"
+# MAT_DIR = r"D:\PyProject\AFD-Unet\data\raw\floodmap"
+MAT_DIR = r"D:\PyProject\AFD-Unet\test\floodmap\floodmap_1_2"
 # 转换后存放 .npy 的文件夹路径（建议新建一个 npy 文件夹，和 raw 平级）
-NPY_DIR = r"D:\PyProject\AFD-Unet\data\processed\npy_images"
+# NPY_DIR = r"D:\PyProject\AFD-Unet\data\processed\npy_images"
+NPY_DIR = r"D:\PyProject\AFD-Unet\test\floodmap-npy1-2"
 
 # 如果输出目录不存在，自动创建
 os.makedirs(NPY_DIR, exist_ok=True)
